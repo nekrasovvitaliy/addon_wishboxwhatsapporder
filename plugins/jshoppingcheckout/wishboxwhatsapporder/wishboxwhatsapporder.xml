@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="4.3.3" type="plugin" method="upgrade" group="jshoppingorder">
+	<name>plg_jshoppingcheckout_wishboxwhatsapporder</name>
+	<creationDate>August 2023</creationDate>
+	<version>1.0.0</version>
+	<author>Vitaliy Nekrasov</author>
+	<authorEmail>nekrasov_vitaliy@list.ru</authorEmail>
+	<authorUrl>www.wishbox.ws</authorUrl>
+	<copyright>Copyright (C) 2013-2023 WishBox. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later</license>
+	<description>PLG_JSHOPPINGCHECKOUT_WISHBOXWHATSAPPORDER_XML_DESCRIPTION</description>
+	<namespace path="src">Joomla\Plugin\Jshoppingcheckout\Wishboxwhatsapporder</namespace>
+	<files>
+		<folder plugin="wishboxwhatsapporder">services</folder>
+		<folder>src</folder>
+		<folder>layouts</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB/plg_jshoppingcheckout_wishboxwhatsapporder.ini</language>
+		<language tag="en-GB">language/en-GB/plg_jshoppingcheckout_wishboxwhatsapporder.sys.ini</language>
+		<language tag="ru-RU">language/ru-RU/plg_jshoppingcheckout_wishboxwhatsapporder.ini</language>
+		<language tag="ru-RU">language/ru-RU/plg_jshoppingcheckout_wishboxwhatsapporder.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+
+			</fieldset>
+		</fields>
+	</config>
+</extension>
