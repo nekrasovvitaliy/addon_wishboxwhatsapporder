@@ -9,48 +9,50 @@ use Joomla\CMS\HTML\HTMLHelper;
 
 defined('_JEXEC') or die;
 
-$order = $displayData['order'];
+$orderTable = $displayData['orderTable'];
 $config = $displayData['config'];
 $vendorTable = $displayData['vendorTable'];
-$orderItems = $order->getAllItems();
+$orderItems = $orderTable->getAllItems();
 ?>
 New Order Received @ <?php echo $vendorTable->shop_name; ?>
 
 --------------------------------
 
-Order number    : <?php echo $order->order_number; ?>
+Order number    : <?php echo $orderTable->order_number; ?>
 
-Date            : <?php echo HTMLHelper::_('date', $order->order_date, 'F d, Y'); ?>
+Date            : <?php echo HTMLHelper::_('date', $orderTable->order_date, 'F d, Y'); ?>
 
-Email           : <?php echo $order->email; ?>
+Email           : <?php echo $orderTable->email; ?>
 
-Total Amount    : <?php echo JSHelper::formatprice($order->order_total); ?>
+Total Amount    : <?php echo JSHelper::formatprice($orderTable->order_total); ?>
 
 
 Order details:
 
 <?php foreach ($orderItems as $orderItem) { ?>
-    <?php echo $orderItem->product_name; ?> x <?php echo $orderItem->product_quantity; ?> => <?php echo JSHelper::formatprice($orderItem->product_quantity * $orderItem->product_item_price); ?>
+<?php echo $orderItem->product_name; ?> x <?php echo $orderItem->product_quantity; ?> => <?php echo JSHelper::formatprice($orderItem->product_quantity * $orderItem->product_item_price); ?>
+
+<?php echo $orderItem->product_attributes; ?>
 
 <?php } ?>
 
 --------------------------------
 
-Subtotal: <?php echo JSHelper::formatprice($order->order_total); ?>
+Subtotal: <?php echo JSHelper::formatprice($orderTable->order_total); ?>
 
-Total: <?php echo JSHelper::formatprice($order->order_subtotal); ?>
+Total: <?php echo JSHelper::formatprice($orderTable->order_subtotal); ?>
 
 --------------------------------
 
-Billing address: <?php echo $order->street; ?>
+Billing address: <?php echo $orderTable->street; ?>
 
 
-Адрес доставки <?php echo $order->d_street; ?>
-
-
-
-Имя фамилия <?php echo $order->f_name; ?> <?php echo $order->l_name; ?>
+Адрес доставки <?php echo $orderTable->d_street; ?>
 
 
 
-Номер телефона <?php echo $order->phone; ?>
+Имя фамилия <?php echo $orderTable->f_name; ?> <?php echo $orderTable->l_name; ?>
+
+
+
+Номер телефона <?php echo $orderTable->phone; ?>

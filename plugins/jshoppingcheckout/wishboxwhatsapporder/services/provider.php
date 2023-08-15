@@ -17,29 +17,29 @@ use Joomla\DI\ServiceProviderInterface;
 use Joomla\Event\DispatcherInterface;
 use Joomla\Plugin\Jshoppingcheckout\Wishboxwhatsapporder\Extension\Wishboxwhatsapporder;
 
-return new class () implements ServiceProviderInterface {
-    /**
-     * Registers the service provider with a DI container.
-     *
-     * @param   Container  $container  The DI container.
-     *
-     * @return  void
-     *
-     * @since   4.2.0
-     */
-    public function register(Container $container)
-    {
-        $container->set(
-            PluginInterface::class,
-            function (Container $container) {
-                $plugin = new Wishboxwhatsapporder(
-                    $container->get(DispatcherInterface::class),
-                    (array) PluginHelper::getPlugin('jshoppingcheckout', 'wishboxwhatsapporder')
-                );
-                $plugin->setApplication(Factory::getApplication());
+return new class implements ServiceProviderInterface {
+	/**
+	 * Registers the service provider with a DI container.
+	 *
+	 * @param   Container  $container  The DI container.
+	 *
+	 * @return  void
+	 *
+	 * @since   4.2.0
+	 */
+	public function register(Container $container)
+	{
+		$container->set(
+			PluginInterface::class,
+			function (Container $container) {
+				$plugin = new Wishboxwhatsapporder(
+					$container->get(DispatcherInterface::class),
+					(array) PluginHelper::getPlugin('jshoppingcheckout', 'wishboxwhatsapporder')
+				);
+				$plugin->setApplication(Factory::getApplication());
 
-                return $plugin;
-            }
-        );
-    }
+				return $plugin;
+			}
+		);
+	}
 };
